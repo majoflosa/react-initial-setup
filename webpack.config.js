@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: ['@babel/polyfill', './src/index.js'],
+    entry: './src/index.js',
     
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -25,7 +25,7 @@ module.exports = {
         historyApiFallback: true,
         disableHostCheck: true,
         open: true,
-        host: 'accounting.site'
+        // host: 'sandbox.dev' // this requires pointing this host to 127.0.0.1 in /etc/hosts
     },
 
     module: {
@@ -37,7 +37,7 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'dist/index.html'),
+            template: path.join(__dirname, 'src/index.html'),
             filename: 'index.html'
         })
     ]
